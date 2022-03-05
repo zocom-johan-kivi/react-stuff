@@ -1,17 +1,13 @@
 import Ingredient from './Ingredient';
 
-function Pizza({ name, ingredients, updatePizza }) {
+function Pizza({ name, ingredients }) {
 
   const ingredientList = ingredients.map((ingredient, index) => {
     return <Ingredient name={ingredient} key={index} />
   })
 
-  function addPizza(name){
-    return updatePizza(name)    
-  }
-
   return (
-    <div className="Pizza" onClick={addPizza}>
+    <div className="Pizza">
       <h2>{name}</h2>
       <ul>
         {ingredientList}
