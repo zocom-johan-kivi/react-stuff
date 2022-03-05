@@ -4,8 +4,6 @@ import Pizza from './Pizza';
 
 function App() {
 
-  const [cart, setCart] = useState([]);
-
   const pizzas = [
     {
         name: 'Margherita',
@@ -29,12 +27,22 @@ function App() {
     }
   ];
 
+  function addToCart(pizza){
+      setCart([...cart, pizza])
+  }
+
   const menu = pizzas.map((pizza, index) => {
-    return <Pizza name={pizza.name} ingredients={pizza.ingredients} key={index} updatePizza={updatePizza} />
+    return <Pizza name={pizza.name} ingredients={pizza.ingredients} key={index} addToCart={addToCart} />
   })
+
+  const [cart, setCart] = useState([]);
+
+
+
 
   return (
     <div className="App">
+      <p><b>{cart.length}</b> pizzas in cart.</p>
      <h1>Pizza Menu</h1>
      <div className='menu'>
       {menu}
