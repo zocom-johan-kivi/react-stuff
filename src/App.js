@@ -4,8 +4,6 @@ import Pizza from './Pizza';
 
 function App() {
 
-  const [cart, setCart] = useState([]);
-
   const pizzas = [
     {
         name: 'Margherita',
